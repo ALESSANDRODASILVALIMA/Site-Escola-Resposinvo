@@ -1,0 +1,682 @@
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    outline: 0;
+    text-decoration: none;
+    list-style: none;
+    /*box-sizing´, que possibilita a modificação da forma que o tamanho do elemento é calculado no CSS.*/
+    /*box-sezing tem como padrão content-box*/
+    /* content-box, que considera os valores das propriedades ´border´ e ´padding´
+     para calcular o tamanho que o elemento ocupa na tela prejudicando a resposividade*/
+    /*border-box torna menos trabalhosa a construção de layouts responsivos, 
+     pois temos a garantia que os elementos terão o exato tamanho que definimos*/
+    box-sizing: border-box;
+}
+
+/*:root representa o elemento <html>  e é identico ao seletor html, exceto que sua especificidade é mais alta.*/
+:root {
+    --cor-primaria: #17497F;
+    --cor-secondaria: #396591;
+    --cor-secondaria1: #BBD1EA;
+    --cor-secondaria2: #DAE3E5;
+    --cor-branca: #ffffff;
+    --cor-baraçaopaca: rgba(255, 255, 255, 0.7);
+    --cor-preta: #000;
+    --cor-fundo: #321325;
+    --cor-botoes: linear-gradient(to right, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    --bg-gradiente1: linear-gradient(to left, #000428, #004e92);
+    --bg-gradiente2: linear-gradient(to right, #42275a, #734b6d);
+    --bg-gradiente3: linear-gradient(to right, #141e30, #243b55);
+    --bg-gradiente4: linear-gradient(132deg, #F4D03F 0%, #16A085 100%);
+    --bg-gradiente5: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+    --bg-gradiente6: linear-gradient(99deg, rgba(115, 18, 81, 1) 10.6%, rgba(28, 28, 28, 1) 118%);
+    --transicao: all 400ms ease;
+    --container-width-lg: 76%;
+    /*dispositivos telas pequenas*/
+    --container-width-md: 90%;
+    /*dispositivos médios */
+    --container-width-sm: 94%;
+    /*dispositivos grandes*/
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--cor-fundo);
+    background-image: var(--bg-gradiente1);
+
+    color: var(--cor-branca);
+}
+
+.container {
+
+    width: var(--container-width-lg);
+    line-height: 1.6rem;
+    margin: 0 auto;
+}
+
+section {
+    padding: 5rem 0;
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    text-align: center;
+}
+
+a {
+    color: var(--cor-branca);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 2.1rem;
+}
+
+h3 {
+    font-size: 1.7rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+img {
+    width: 100%;
+    display: block;
+    /*Cover - O conteúdo substituído é dimensionado para manter sua proporção e preencher toda a caixa*/
+    object-fit: cover;
+}
+
+.btn {
+    background-image: var(--cor-botoes);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 10px #eee;
+    border-radius: 10px;
+    display: block;
+
+    cursor: pointer;
+}
+
+
+
+.btn:hover {
+    background-color: var(--cor-baraçaopaca);
+    background-position: right center;
+    /* change the direction of the change here */
+    
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--cor-botoes);
+   
+}
+
+/*-----------------------------nav----------------------*/
+nav {
+    background-color: transparent;
+    width: 100vw;
+    height: 5rem;
+    /*5rem == 80px*/
+    position: fixed;
+    top: 0;
+    z-index: 11;
+}
+
+.window-scroll {
+    /*la em main.js o script querySelector(nav) referencia a nav logo o background vai aplicado a ela*/
+    background-color: var(--cor-primaria);
+}
+
+
+.nav_container {
+
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav_container button {
+    display: none;
+}
+
+.nav_menu {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.nav_menu a {
+    font-size: 0.9rem;
+    /*tempo que leva para transita para houver*/
+    transition: var(--transicao)
+}
+
+.nav_menu a:hover {
+    color: var(--cor-secondaria1);
+
+}
+
+/*==========Fim Navigation==========*/
+
+/*==========Header==========*/
+
+header {
+    position: relative;
+    top: 5rem;
+    overflow: hidden;
+    height: 70vh;
+    margin-bottom: 3rem;
+}
+
+.header_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+    height: 100%;
+
+}
+
+.header_left p {
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+/*==========fim Header==========*/
+
+.categoria {
+    background-color: var(--cor-primaria);
+    height: 600px;
+    margin-top: 1rem;
+}
+
+.container_categoria {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 1rem;
+
+}
+
+.categoria_left {
+    margin: 1rem 1rem 2rem;
+}
+
+.categoria_left p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.categoria_right {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+}
+
+.categoria_artigo {
+    background-color: var(--cor-secondaria);
+    border-radius: 2rem;
+    padding: 1rem;
+    transition: var(--transicao);
+
+}
+
+
+.categoria_artigo:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+
+
+.categoria_icone {
+    background: var(--cor-primaria);
+    padding: 0.2rem;
+    font-size: 1rem;
+    border-radius: 4px;
+
+}
+
+.categoria_artigo:nth-child(2) .categoria_icone {
+    background: var(--cor-botoes);
+}
+
+.categoria_artigo:nth-child(3) .categoria_icone {
+    background: chartreuse;
+}
+
+.categoria_artigo:nth-child(4) .categoria_icone {
+    background: #000;
+}
+
+.categoria_artigo:nth-child(5) .categoria_icone {
+    background: coral;
+}
+
+.categoria_artigo:nth-child(6) .categoria_icone {
+    background: red;
+}
+
+.categoria_artigo h5 {
+    margin: 1rem 0 1rem;
+}
+
+
+/*===================fim categorias====================*/
+
+.cursos h1 {
+    text-align: center;
+}
+
+.cursos {
+    
+    margin-top: 1rem;
+
+}
+
+.container_cursos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+
+}
+
+.article_cursos {
+    margin: 1rem;
+    background-color: var(--cor-primaria);
+    padding: 1rem;
+    transition: var(--transicao);
+    text-align: center;
+
+}
+
+.article_cursos:hover {
+    background-color: transparent;
+    border: solid 1px;
+}
+
+.article_cursos h4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.article_cursos p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* fim */
+
+
+/*peguntas feitas*/
+
+.pergunta {
+    background-color: var(--cor-primaria);
+    margin-top: 1rem;
+
+}
+
+
+.pergunta h2{
+    margin-bottom: 3rem;
+}
+
+.perguntas_container {
+    display: grid;
+    /*1fr é  fração do espaço*/
+    /*2 é numero de colunas no espaço disponivel*/
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+}
+
+.perguntas {
+    background-color: var(--cor-secondaria);
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    gap: 1.4rem;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.pergunta_feita h4 {
+    font-size: 1rem;
+    line-height: 2.2;
+}
+
+.pergunta_icon {
+    align-self: flex-start;
+    font-size: 1.2rem;
+}
+
+.perguntas p {
+    display: none;
+}
+
+
+.perguntas.open p {
+    display: block;
+}
+
+
+/*=================testemunhas========================*/
+
+.testemunha {
+    overflow-x: hidden;
+    position: relative;
+
+}
+
+.testemunha_container {
+    overflow-x: hidden;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.testemunha_container h2 {
+    margin-bottom: 1rem;
+}
+
+.testemunas {
+    padding: 1rem;
+
+}
+
+.avatar {
+    display: flex;
+    text-align: center;
+    border: solid 0.3rem var(--cor-primaria);
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+
+}
+
+.avatar img {
+    margin: auto;
+    display: block;
+    width: 5rem;
+    height: 5rem;
+}
+
+
+.testeminha_info {
+    text-align: center;
+}
+
+
+.testemunha_texto {
+    background-color: var(--cor-secondaria);
+    padding: 2rem;
+    margin-top: 3rem;
+    position: relative;
+}
+
+/* desenhando um container decorativo usando before e contente*/
+.testemunha_texto::before {
+    content: "";
+    display: block;
+    background-color: var(--cor-secondaria);
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    left: 45%;
+    top: -1.5rem;
+    transform: rotate(45deg);
+}
+
+.footer_container {
+    padding: 2rem;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+
+footer {
+    background-color: var(--cor-primaria)
+}
+
+.footer_contatos ul {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.direitos{
+    display: grid;
+    height: 3vw;
+    text-align: center;
+    border-top:  solid 1px;
+    align-items: center;  
+    
+}
+
+
+
+@media screen and (min-width: 1360px) {
+    .nav_container .close_menu_bt{
+        display: none;
+        background-color: transparent;
+    }
+
+    .nav_container .open_menu_bt{
+        background-color: transparent;
+    }
+
+}
+
+
+
+/*=======================Reponsividade 1024px===========================*/
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: var(--container-width-md);
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+  /*==========================navbar======================*/
+    .nav_container button{
+        display: inline-block;
+        background: transparent;
+        font-size: 1.5rem;
+        padding: 5px 10px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+    }
+
+    .nav_menu{
+        position: fixed;
+        right: 5%;
+        margin-top: 28rem;
+        flex-direction: column;        
+        width: 18rem;
+        gap: 0;
+        /*ocutando o nav_manu*/
+        display: none;
+    }
+
+    
+
+    .nav_container .close_menu_bt{
+        display: none;
+        background-color: transparent;
+    }
+
+    .nav_container .open_menu_bt{
+        background-color: transparent;
+    }
+
+    .nav_menu li{
+        width: 100%;
+        height: 5.5rem;
+        
+        animation: animarMenu 400ms linear forwards;
+        transform-origin: right top;
+        opacity: 0;
+    }
+
+    .nav_menu li:nth-child(2){
+        animation-delay: 300ms;
+    }
+    .nav_menu li:nth-child(3){
+        animation-delay: 600ms;
+    }
+    .nav_menu li:nth-child(4){
+        animation-delay: 900ms;
+    }
+    @keyframes animarMenu {
+        0%{
+            transform: rotateZ(-90deg) rotateX(90deg) scale(0.3);
+        }
+        100%{
+            transform: rotateZ(0deg) rotateX(0deg) scale(1);
+            opacity: 1;
+
+        }
+    }
+
+    .nav_menu li a{
+        background-color: var(--cor-secondaria);
+        width: 100%;
+        height: 100%;
+        display: grid;        
+        place-items: center;
+
+    }
+
+    .nav_menu li a:hover{
+        background-color: var(--cor-primaria);
+    }
+
+
+      /*==========================header======================*/
+
+    header{
+        height: 52vh;
+        margin-bottom: 4rem;
+    }
+    .header_container{
+        gap: 0;
+        padding-bottom: 3rem;
+    }
+
+    .categoria{
+       height: auto; 
+    }
+    .container_categoria{
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .categoria_right{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cursos{
+        height: auto; 
+    }
+    .container_cursos{
+        grid-template-columns: repeat(1, 1fr); 
+        gap: 1rem;
+    }
+    .pergunta{
+        height: auto; 
+    }
+    .perguntas_container{
+        grid-template-columns: repeat(1, 1fr); 
+        gap: 1rem; 
+    }
+    .footer_container{
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 1rem;
+    }
+}
+
+
+/*===================media query *600px phone==================*/
+
+@media screen and (max-width: 600px) {
+    
+    .container{        
+        width: var(--container-width-sm);
+    }
+
+    /*==============navbar===========*/
+    .nav_menu{
+        right: 3%;
+    }
+   
+    header{
+        height: 100vh;
+        
+    }
+    .header_container{
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin-top: 0rem;
+    }
+
+    .header_left{
+        text-align: center;
+        margin: auto;
+    }
+    .categoria_left{
+        text-align: center;
+    }
+
+    .categoria_left h1{
+        font-size: 2rem;
+        
+    }
+    .btn-primary {
+        margin: auto;
+    }
+    .footer_container{
+        grid-template-columns: repeat(1, 1fr); 
+        gap: 1rem;
+    }
+    
+}

@@ -1,0 +1,160 @@
+/*Arquivamento*/
+
+.sobre_aquivamento{
+    margin-top: 3rem;
+}
+
+.sobre_aquivamento-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+}
+
+.sobre_aquivamento_direito > p{
+    margin: 1rem 0 2.5rem;
+}
+
+.arquivamentos_cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.arquivamento_card{
+    background-color: var(--cor-secondaria);
+    padding: 1.6rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.arquivamento_card:hover{
+    background: var(--cor-primaria);
+    box-shadow: 0 3rem 3rem rgba(0,0,0,0.3);
+}
+
+.aquivamento_icon{
+    background: orange;
+    padding: 0.6rem;
+    border-radius: 1rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+
+}
+
+.arquivamento_card:nth-child(2) .aquivamento_icon{
+    background-color: brown;
+}
+
+.arquivamento_card:nth-child(3) .aquivamento_icon{
+    background-color: blueviolet;
+}
+
+
+/*==========time professores========== */
+
+.time{
+    background: var(--cor-primaria);
+    box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.5);
+}
+.time_container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.time_membro{
+    background: var(--cor-secondaria);
+    padding: 2rem;
+    border: 1px solid transparent;
+    transition: var(--transicao);
+    position: relative;
+    overflow: hidden;
+}
+.time_membro:hover{
+    background: transparent;
+    border-color: white;    
+}
+
+.time_membro_image img{
+    filter: saturate(0);
+}
+
+.time_membro_image:hover img{
+    filter: saturate(1);
+}
+
+.time_membro_info *{
+text-align: center;
+margin-top: 1.4rem;
+}
+
+.time_membro_info p{
+    color: var(--cor-branca);
+}
+
+.time_membro_social{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    right: -100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-secondaria);
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: -2rem 0 2rem rgba(0, 0, 0, 0.3);
+    transition: var(--transicao);
+}
+
+.time_membro:hover .time_membro_social{
+    right: 0;
+}
+
+.time_membro_social a{
+    padding: 1rem;
+}
+
+/*===========tablete=========*/
+
+@media screen and (max-width: 1024px){
+    .sobre_aquivamento{
+        margin-top: 2rem;
+    }
+    .sobre_aquivamento-container{
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    .sobre_aquivamento_esquerdo{
+        width: 75%;
+        margin: 0 auto;
+    }
+    .time_container{
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    .time_membro{
+        padding: 1rem;
+    }
+
+}
+
+/*===========Mobile=========*/
+
+@media screen and (max-width: 600px){
+    .arquivamentos_cards{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.7rem;
+    }
+
+    .time_container{
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+
